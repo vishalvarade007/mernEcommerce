@@ -1,0 +1,54 @@
+.sidebar {
+    background-color: rgb(255,255,255);
+    display: flex;
+    flex-direction: column;
+    padding: 4rem 0;
+}
+.logocontainer{
+   padding: 2vmax;
+}
+.logocontainer > a{
+    color:red;
+    transition:all 0.5s;
+    text-decoration: none;
+    font-size: 3vmax;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.logocontainer > a:hover{
+    filter: drop-shadow(0 0 10px black);
+}
+.sidebar > a, .remA{
+    text-decoration: none;
+    color:rgba(0,0,0,0.493);
+    transition: all 0.5s;
+    padding: 2rem;
+    font:200 1rem "Roboto";
+}
+.sidebar > a:hover{
+  color:tomato;
+  transform: scale(1.1);
+}
+.remA:hover{
+    color:tomato;
+    transform: scale(1.1);
+  }
+.sidebar > a > p{
+    display: flex;
+    align-items: center;
+}
+.sidebar > a > p > svg{
+    margin-right: 0.5rem;
+}
+.MuiTypography-root {
+    background-color: #ffffff !important;
+}
+
+@media screen and (max-width:600px) {
+    .sidebar > a > p{
+        font:300 5vw "Roboto";
+    }
+    #product .MuiTreeItem-label{
+        font-size: 5vw;
+    }
+}

@@ -1,0 +1,28 @@
+*{
+    margin: 0;
+    scroll-behavior: smooth;
+}
+
+body{
+    cursor:auto;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button{
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"]{
+    -moz-appearance: textfield;
+}
+
+.greenColor{
+    color: rgb(0, 131, 0) !important;
+}
+.redColor{
+    color:red !important;
+}
+.blueColor{
+    color:rgb(96, 96, 236) !important;
+}
