@@ -9,6 +9,9 @@ export function ProtectedRoute({children,isAdmin}) {
     if(loading){
         return <Loader/>;
     }
+    if(!user){
+        return <Navigate to="/login"/>
+    }
     if(loading === false && isAuthenticated === false){
         return <Navigate to="/login"/>
     }
