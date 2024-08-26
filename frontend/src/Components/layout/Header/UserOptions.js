@@ -57,7 +57,7 @@ export function UserOptions({user}) {
          style={{zIndex:11}}
          icon={<img
            className='speedDialIcon'
-           src={user.avatar.url ? user.avatar.url:profilIcon}
+           src={user && user.avatar.url ? user.avatar.url:profilIcon}
            alt='profile'
         />} 
       >
