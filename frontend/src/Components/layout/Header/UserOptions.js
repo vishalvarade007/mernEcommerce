@@ -40,7 +40,7 @@ export function UserOptions({user}) {
         {icon:<ExitToApp/>, name:"Logout", func:logoutUser},
     ];
 
-    if(user.role === "admin"){
+    if(user && user.role === "admin"){
         options.unshift({icon:<Dashboard/>, name:"Dashboard", func:dashboard});
     }
     
