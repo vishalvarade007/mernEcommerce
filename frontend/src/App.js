@@ -58,7 +58,7 @@ function App() {
     return (
         <div>
             <Header />
-            {isAuthenticated && <UserOptions user={user} />}
+            {user && isAuthenticated && <UserOptions user={user} />}
             <Routes>
                 <Route exact path="/" element={<Home />} />
                 <Route exact path="/products" element={<Products />} />
