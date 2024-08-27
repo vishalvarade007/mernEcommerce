@@ -46,7 +46,7 @@ export const getProduct = (keyword = "", currentPage = 1, price = [0, 100000], c
       dispatch({
          type: ALL_PRODUCT_SUCCESS,
          payload: data,
-      })
+      });
 
    } catch (error) {
 
