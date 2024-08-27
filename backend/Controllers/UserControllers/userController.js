@@ -139,9 +139,7 @@ exports.resetPassword = catchAsyncErrors(async (req, res, next) => {
 //Get User Details
 exports.getUserDetails = catchAsyncErrors(async (req, res, next) => {
     const user = await User.findById(req.user.id);
-    if (!user) {
-        return; // Exits the function if the user is empty
-    }
+
     res.status(200).json({
         success: true,
         user,
