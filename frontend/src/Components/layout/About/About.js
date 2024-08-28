@@ -42,7 +42,7 @@ export function About() {
                             <Facebook className="fbSvgIcon" />
                         </a>
 
-                        <a href="https://instagram.com/meabhisingh" target="blank">
+                        <a href="https://instagram.com/vishalvarade__" target="blank">
                             <Instagram className="instagramSvgIcon" />
                         </a>
                     </div>

@@ -84,10 +84,11 @@ export const createProduct = (productData) => async (dispatch) => {
       const config = {
          headers: {
             "Content-Type": "application/json",
-         }
+         },
+         withCredentials: true,
       }
       const { data } = await axios.post(`${BASE_URL}/api/v1/admin/products/new`, productData, config);
-    
+       
       dispatch({
          type: NEW_PRODUCT_SUCCESS,
          payload: data,
@@ -95,7 +96,7 @@ export const createProduct = (productData) => async (dispatch) => {
    } catch (error) {
       dispatch({
          type: NEW_PRODUCT_FAIL,
-         payload: error.response.data.message,
+         payload: error,
       });
    }
 };
