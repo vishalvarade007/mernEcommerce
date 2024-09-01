@@ -59,7 +59,6 @@ export function NewProduct() {
 
          images.forEach((image)=>{
            myForm.append("images",image);
-           console.log(image,"img");
          });
 
          dispatch(createProduct(myForm));

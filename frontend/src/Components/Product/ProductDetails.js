@@ -127,6 +127,7 @@ export function ProductDetails() {
                     </div>
                     <div className='detailsBlock4'>
                        Description:<p>{product.description}</p>
+                       <p style={{color:"red"}}>(Note:Please login before add to cart!)</p>
                     </div>
                     <button onClick={submitReviewToggle} className='submitReview'>Submit Review</button>
                 </div>

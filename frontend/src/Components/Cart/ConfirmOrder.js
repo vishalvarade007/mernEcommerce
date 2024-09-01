@@ -18,8 +18,7 @@ export function ConfirmOrder() {
 
     const shippingCharges = subtotal > 1000 ? 0 : 200;
     const tax = subtotal * 0.18;
-    const totalPrice = subtotal + shippingCharges + tax;
-    console.log(shippingInfo,"shippingInfo:");
+    const totalPrice = (subtotal + shippingCharges + tax).toFixed(2);
 
     const address = `${shippingInfo.address},${shippingInfo.city},${shippingInfo.state},${shippingInfo.pinCode},${shippingInfo.country}`;
 

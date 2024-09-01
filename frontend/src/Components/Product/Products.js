@@ -58,6 +58,9 @@ export const Products = () => {
         <>
           <Metadata title={"Products --EasyCART"}/>
           <h2 className='productsHeading'>Products</h2>
+          {count === 0 && (<div className='noProductFoundContainer'>
+               <h1 className='noProductFoundHeading'>No Products Found !!</h1>
+          </div>)}
 
           <div className='products'>
             {products && products.map((product) => (
