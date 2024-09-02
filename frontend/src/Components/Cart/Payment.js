@@ -9,6 +9,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { CreditCard, Event, VpnKey } from "@mui/icons-material";
 import { createOrder, clearErrors } from "../../Actions/orderAction";
+import {BASE_URL} from "../../url";
 
 export function Payment() {
     const orderInfo = JSON.parse(sessionStorage.getItem("orderInfo"));
@@ -43,7 +44,7 @@ export function Payment() {
                 },
             };
             const { data } = await axios.post(
-                `/api/v1/payment/process`,
+                `${BASE_URL}/api/v1/payment/process`,
                 paymentData,
                 config
             );
