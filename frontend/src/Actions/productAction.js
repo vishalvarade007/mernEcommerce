@@ -62,8 +62,13 @@ export const getProduct = (keyword = "", currentPage = 1, price = [0, 100000], c
 export const getAdminProducts = () => async (dispatch) => {
    try {
       dispatch({ type: ADMIN_PRODUCT_REQUEST });
+      const token = localStorage.getItem('jwtToken');
 
-      const { data } = await axios.get(`${BASE_URL}/api/v1/admin/products`);
+      const { data } = await axios.get(`${BASE_URL}/api/v1/admin/products`,{
+         headers: {
+             Authorization: `Bearer ${token}`
+           }
+     });
 
       dispatch({
          type: ADMIN_PRODUCT_SUCCESS,
@@ -82,9 +87,12 @@ export const getAdminProducts = () => async (dispatch) => {
 export const createProduct = (productData) => async (dispatch) => {
    try {
       dispatch({ type: NEW_PRODUCT_REQUEST });
+      const token = localStorage.getItem('jwtToken');
+
       const config = {
          headers: {
             "Content-Type": "application/json",
+             Authorization: `Bearer ${token}`,
          },
        
       }
@@ -106,9 +114,12 @@ export const createProduct = (productData) => async (dispatch) => {
 export const updateProduct = (id,productData) => async (dispatch) => {
    try {
       dispatch({ type: UPDATE_PRODUCT_REQUEST });
+      const token = localStorage.getItem('jwtToken');
+
       const config = {
          headers: {
             "Content-Type": "application/json",
+             Authorization: `Bearer ${token}`,
          }
       }
       const { data } = await axios.put(`${BASE_URL}/api/v1/admin/products/${id}`, productData, config);
@@ -145,7 +156,13 @@ export const getProductDetails = (id) => async (dispatch) => {
 export const deleteProduct = (id) => async (dispatch) => {
    try {
       dispatch({ type: DELETE_PRODUCT_REQUEST });
-      const { data } = await axios.delete(`${BASE_URL}/api/v1/admin/products/${id}`);
+      const token = localStorage.getItem('jwtToken');
+
+      const { data } = await axios.delete(`${BASE_URL}/api/v1/admin/products/${id}`,{
+         headers: {
+             Authorization: `Bearer ${token}`
+           }
+     });
 
       dispatch({
          type: DELETE_PRODUCT_SUCCESS,
@@ -163,10 +180,12 @@ export const deleteProduct = (id) => async (dispatch) => {
 export const newReview = (reviewData) => async (dispatch) => {
    try {
       dispatch({ type: NEW_REVIEW_REQUEST });
+      const token = localStorage.getItem('jwtToken');
+
       const config = {
          headers: {
             "Content-Type": "application/json",
-            
+             Authorization: `Bearer ${token}`
          }
       }
       const { data } = await axios.put(`${BASE_URL}/api/v1/review`, reviewData, config);
@@ -208,8 +227,13 @@ export const getAllReviews = (id) => async (dispatch) => {
 export const deleteReviews = (reviewId,productId) => async (dispatch) => {
    try {
       dispatch({ type: DELETE_REVIEW_REQUEST });
+      const token = localStorage.getItem('jwtToken');
      
-      const { data } = await axios.delete(`${BASE_URL}/api/v1/reviews?id=${reviewId}&productId=${productId}`);
+      const { data } = await axios.delete(`${BASE_URL}/api/v1/reviews?id=${reviewId}&productId=${productId}`,{
+         headers: {
+             Authorization: `Bearer ${token}`
+           }
+     });
 
       dispatch({
          type: DELETE_REVIEW_SUCCESS,
