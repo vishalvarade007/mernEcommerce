@@ -50,6 +50,10 @@ export const login = (email, password) => async (dispatch) => {
 
         const { data } = await axios.post(`${BASE_URL}/api/v1/login`, { email, password }, config);
 
+        if(data.token){
+            localStorage.setItem("jwtToken",data.token);
+        }
+
         dispatch({ type: LOGIN_SUCCESS, payload: data.user });
     } catch (error) {
         dispatch({ type: LOGIN_FAIL, payload: error.response.data.message });
@@ -66,6 +70,7 @@ export const loadUser = () => async (dispatch) => {
                 Authorization: `Bearer ${token}`
               }
         });
+        console.log(data,"data");
 
         dispatch({ type: LOAD_USER_SUCCESS, payload: data.user });
     } catch (error) {
