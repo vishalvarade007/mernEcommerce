@@ -38,10 +38,12 @@ import {ProductReviews} from "./Components/admin/ProductReviews";
 import {Contact} from "./Components/layout/Contact";
 import {About} from "./Components/layout/About/About";
 import {NotFound} from "./Components/layout/NotFound/NotFound";
+import { useAlert } from 'react-alert';
 
 function App() {
     const { isAuthenticated, user } = useSelector((state) => state.user);
     const location = useLocation();
+    const alert = useAlert();
 
     useEffect(() => {
         webfont.load({
@@ -49,9 +51,21 @@ function App() {
                 families: ['Roboto', 'Droid Sans', 'Chilanka'],
             },
         });
+        const hasShownNotification = sessionStorage.getItem('hasShownNotification');
+
+        if (!hasShownNotification) {
+            alert.show("Please wait 60 seconds to load the data", { type: 'info' });
+
+            sessionStorage.setItem('hasShownNotification', 'true');
+
+            setTimeout(() => {
+                alert.removeAll();
+            }, 60000);
+        }
+     
         store.dispatch(loadUser());
         
-    }, []);
+    }, [alert]);
 
     window.addEventListener("contextmenu",(e)=>e.preventDefault());
 
