@@ -20,6 +20,7 @@ export function ProductDetails() {
 
     const {product,loading,error} = useSelector((state)=>state.productDetails);
     const {success,error:reviewError} = useSelector((state)=>state.newReview);
+    const {isAuthenticated} = useSelector((state)=>state.user);
    
     useEffect(()=>{
        if(error){
@@ -116,7 +117,7 @@ export function ProductDetails() {
                             <input readOnly type='number' value={quantity}/>
                             <button onClick={increaseQuantity}>+</button>
                          </div>
-                         <button disabled={product.Stock < 1 ? true:false} onClick={addToCart}>Add to Cart</button>
+                         <button disabled={(product.Stock < 1 || !isAuthenticated ? true:false)} onClick={addToCart}>Add to Cart</button>
                        </div>
                        <p>
                          Status:
@@ -129,7 +130,7 @@ export function ProductDetails() {
                        Description:<p>{product.description}</p>
                        <p style={{color:"red"}}>(Note:Please login before add to cart!)</p>
                     </div>
-                    <button onClick={submitReviewToggle} className='submitReview'>Submit Review</button>
+                    <button onClick={submitReviewToggle} className='submitReview' disabled={(!isAuthenticated ? true:false)}>Submit Review</button>
                 </div>
             </div>
             <h3 className="reviewsHeading">Reviews</h3>
