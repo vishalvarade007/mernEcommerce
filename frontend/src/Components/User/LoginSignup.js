@@ -98,6 +98,7 @@ export const LoginSignup = () => {
        myForm.set("avatar",avatar);
 
       dispatch(register(myForm));
+     
     }
     
 
