@@ -55,9 +55,9 @@ export function Cart() {
               <div className='cartContainer' key={item.product}>
                 <CartItemCard item={item} deleteCartItems={deleteCartItems} />
                 <div className='cartInput'>
-                  <button onClick={() => decreaseQuantity(item.product, item.quantity)}>-</button>
+                  <button onClick={() => {decreaseQuantity(item.product, item.quantity)}}>-</button>
                   <input readOnly type='number' value={item.quantity} />
-                  <button onClick={() => increaseQuantity(item.product, item.quantity, item.stock)}>+</button>
+                  <button onClick={() => {increaseQuantity(item.product, item.quantity, item.stock)}}>+</button>
                 </div>
                 <p className='cartSubtotal'>{`₹${item.price * item.quantity}`}</p>
               </div>
