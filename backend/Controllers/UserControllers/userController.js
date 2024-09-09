@@ -80,7 +80,7 @@ exports.forgotPassword = catchAsyncErrors(async (req, res, next) => {
 
     await user.save({ validateBeforeSave: false });
 
-    const resetPasswordUrl = `https://${req.get("host")}/password/reset/${resetToken}`;
+    const resetPasswordUrl = `https://easycart-mern-ecommerce.netlify.app/password/reset/${resetToken}`;
 
     const message = `Your password reset temp  is : \n\n ${resetPasswordUrl} \n\n If you have not requested this email then please ignore it!`;
 
